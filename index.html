@@ -1,3 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Creator AI Tools</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+
+body{
+font-family:Arial;
+background:#0f0f0f;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+input{
+padding:10px;
+width:80%;
+border-radius:6px;
+border:none;
+}
+
+.category{
+background:#1c1c1c;
+margin-top:20px;
+padding:20px;
+border-radius:10px;
+}
+
+button{
+padding:10px;
+margin:5px;
+border:none;
+border-radius:6px;
+background:#00ffc3;
+cursor:pointer;
+}
+
+#result{
+margin-top:20px;
+background:#1c1c1c;
+padding:20px;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>🚀 Creator AI Tools Dashboard</h1>
+
+<input id="topic" placeholder="Enter topic">
+
 <div class="category">
 
 <h2>🎬 Video Tools</h2>
@@ -7,7 +65,6 @@
 <button onclick="generate('hook')">Viral Hook</button>
 
 </div>
-
 
 <div class="category">
 
@@ -19,32 +76,71 @@
 
 </div>
 
-
 <div class="category">
 
 <h2>🎨 Thumbnail Tools</h2>
 
 <button onclick="generate('thumbnail')">Thumbnail Idea</button>
-<button onclick="generate('thumbnailtext')">Thumbnail Text</button>
 
 </div>
 
+<div id="result">
 
-<div class="category">
-
-<h2>📱 Social Media</h2>
-
-<button onclick="generate('caption')">Instagram Caption</button>
-<button onclick="generate('reeltags')">Reel Hashtags</button>
+AI result will appear here...
 
 </div>
 
+<script>
 
-<div class="category">
+function generate(type){
 
-<h2>💡 Creator Growth</h2>
+let topic=document.getElementById("topic").value
 
-<button onclick="generate('niche')">Niche Ideas</button>
-<button onclick="generate('contentcalendar')">Content Calendar</button>
+if(topic==""){
+document.getElementById("result").innerText="Please enter topic"
+return
+}
 
-</div>
+let result=""
+
+switch(type){
+
+case "title":
+result="Top 5 Secrets About "+topic
+break
+
+case "script":
+result="आज हम बात करने वाले हैं "+topic+" के बारे में..."
+break
+
+case "hook":
+result="अगर आप "+topic+" के बारे में नहीं जानते तो यह आपको चौंका देगा!"
+break
+
+case "idea":
+result="3 shocking facts about "+topic
+break
+
+case "description":
+result="In this video we explore "+topic
+break
+
+case "tags":
+result=topic+", viral, shorts, trending"
+break
+
+case "thumbnail":
+result="Shocked face + big text + arrow pointing to "+topic
+break
+
+}
+
+document.getElementById("result").innerText=result
+
+}
+
+</script>
+
+</body>
+
+</html>
