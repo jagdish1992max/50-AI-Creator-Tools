@@ -3,116 +3,31 @@
 
 <head>
 
-<title>AI Creator Dashboard</title>
+<title>AI Creator SaaS</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-
-body{
-margin:0;
-font-family:Arial;
-background:#0f0f0f;
-color:white;
-display:flex;
-}
-
-.sidebar{
-width:220px;
-background:#111;
-height:100vh;
-padding:20px;
-}
-
-.sidebar h2{
-color:#00ffc3;
-}
-
-.sidebar button{
-width:100%;
-margin-top:10px;
-padding:10px;
-border:none;
-background:#1c1c1c;
-color:white;
-border-radius:6px;
-cursor:pointer;
-}
-
-.main{
-flex:1;
-padding:20px;
-}
-
-input{
-width:100%;
-padding:12px;
-border:none;
-border-radius:6px;
-}
-
-#result{
-margin-top:15px;
-background:#1c1c1c;
-padding:20px;
-border-radius:10px;
-min-height:80px;
-}
-
-.tools{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-gap:10px;
-margin-top:20px;
-}
-
-.tool{
-background:#1c1c1c;
-padding:20px;
-border-radius:10px;
-cursor:pointer;
-text-align:center;
-}
-
-.tool:hover{
-background:#00ffc3;
-color:black;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<div class="sidebar">
+<div class="login">
 
-<h2>AI Tools</h2>
+<h1>🚀 AI Creator Tools</h1>
 
-<button onclick="generate('title')">Title</button>
-<button onclick="generate('script')">Script</button>
-<button onclick="generate('hook')">Hook</button>
-<button onclick="generate('idea')">Video Idea</button>
-<button onclick="generate('tags')">Tags</button>
+<input id="email" placeholder="Email">
 
-</div>
+<input id="password" type="password" placeholder="Password">
 
-<div class="main">
-
-<h1>🚀 Creator AI Dashboard</h1>
-
-<input id="topic" placeholder="Enter topic">
-
-<div id="result">
-
-AI result will appear here...
+<button onclick="login()">Login</button>
 
 </div>
 
-<div class="tools">
+<script src="script.js"></script>
 
-<div class="tool" onclick="generate('title')">Title Generator</div>
+</body>
 
+</html>
 <div class="tool" onclick="generate('script')">Script Generator</div>
 
 <div class="tool" onclick="generate('hook')">Viral Hook</div>
