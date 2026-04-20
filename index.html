@@ -1,49 +1,82 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 
-<title>Creator AI Tools</title>
+<title>AI Creator Dashboard</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 body{
+margin:0;
 font-family:Arial;
 background:#0f0f0f;
 color:white;
-text-align:center;
+display:flex;
+}
+
+.sidebar{
+width:220px;
+background:#111;
+height:100vh;
+padding:20px;
+}
+
+.sidebar h2{
+color:#00ffc3;
+}
+
+.sidebar button{
+width:100%;
+margin-top:10px;
+padding:10px;
+border:none;
+background:#1c1c1c;
+color:white;
+border-radius:6px;
+cursor:pointer;
+}
+
+.main{
+flex:1;
 padding:20px;
 }
 
 input{
-padding:10px;
-width:80%;
-border-radius:6px;
-border:none;
-}
-
-.category{
-background:#1c1c1c;
-margin-top:20px;
-padding:20px;
-border-radius:10px;
-}
-
-button{
-padding:10px;
-margin:5px;
+width:100%;
+padding:12px;
 border:none;
 border-radius:6px;
-background:#00ffc3;
-cursor:pointer;
 }
 
 #result{
-margin-top:20px;
+margin-top:15px;
 background:#1c1c1c;
 padding:20px;
 border-radius:10px;
+min-height:80px;
+}
+
+.tools{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+gap:10px;
+margin-top:20px;
+}
+
+.tool{
+background:#1c1c1c;
+padding:20px;
+border-radius:10px;
+cursor:pointer;
+text-align:center;
+}
+
+.tool:hover{
+background:#00ffc3;
+color:black;
 }
 
 </style>
@@ -52,48 +85,46 @@ border-radius:10px;
 
 <body>
 
-<h1>🚀 Creator AI Tools Dashboard</h1>
+<div class="sidebar">
 
-<input id="topic" placeholder="Enter topic">
-
-<div class="category">
-
-<h2>🎬 Video Tools</h2>
-
-<button onclick="generate('idea')">Video Idea</button>
-<button onclick="generate('script')">Video Script</button>
-<button onclick="generate('hook')">Viral Hook</button>
-
-</div>
-
-<div class="category">
-
-<h2>📈 YouTube SEO</h2>
+<h2>AI Tools</h2>
 
 <button onclick="generate('title')">Title</button>
-<button onclick="generate('description')">Description</button>
+<button onclick="generate('script')">Script</button>
+<button onclick="generate('hook')">Hook</button>
+<button onclick="generate('idea')">Video Idea</button>
 <button onclick="generate('tags')">Tags</button>
 
 </div>
 
-<div class="category">
+<div class="main">
 
-<h2>🎨 Thumbnail Tools</h2>
+<h1>🚀 Creator AI Dashboard</h1>
 
-<button onclick="generate('thumbnail')">Thumbnail Idea</button>
-
-</div>
-
-<div id="result">
-
-AI result will appear here...
-
-</div>
 <input id="topic" placeholder="Enter topic">
 
 <div id="result">
+
 AI result will appear here...
+
 </div>
+
+<div class="tools">
+
+<div class="tool" onclick="generate('title')">Title Generator</div>
+
+<div class="tool" onclick="generate('script')">Script Generator</div>
+
+<div class="tool" onclick="generate('hook')">Viral Hook</div>
+
+<div class="tool" onclick="generate('idea')">Video Idea</div>
+
+<div class="tool" onclick="generate('tags')">Hashtags</div>
+
+</div>
+
+</div>
+
 <script>
 
 function generate(type){
@@ -101,7 +132,7 @@ function generate(type){
 let topic=document.getElementById("topic").value
 
 if(topic==""){
-document.getElementById("result").innerText="Please enter topic"
+document.getElementById("result").innerText="Enter topic first"
 return
 }
 
@@ -118,23 +149,15 @@ result="आज हम बात करने वाले हैं "+topic+" �
 break
 
 case "hook":
-result="अगर आप "+topic+" के बारे में नहीं जानते तो यह आपको चौंका देगा!"
+result="अगर आप "+topic+" नहीं जानते तो यह आपको चौंका देगा!"
 break
 
 case "idea":
 result="3 shocking facts about "+topic
 break
 
-case "description":
-result="In this video we explore "+topic
-break
-
 case "tags":
-result=topic+", viral, shorts, trending"
-break
-
-case "thumbnail":
-result="Shocked face + big text + arrow pointing to "+topic
+result="#viral #shorts #reels #trending #"+topic
 break
 
 }
