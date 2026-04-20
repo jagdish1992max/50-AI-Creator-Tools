@@ -59,3 +59,4 @@ result="AI generated idea about " + topic
 document.getElementById("result").innerText=result
 
 }
+document.getElementById("result").scrollIntoView({behavior:"smooth"});
